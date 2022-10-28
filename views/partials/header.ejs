@@ -8,6 +8,16 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-  <a href="/">Home</a>
-   | 
-  <a href="/">All Game Reviews</a>
+    <nav>
+        <img src="/images/camera.svg">
+        <a href="/games" <%- title === 'All Games' ? 'class="active"' : '' %>>ALL MOVIES</a>
+        <% if (user) { %>
+          <a href="/reviews/new"    <%- title === 'Add Review' ? 'class="active"' : '' %>>
+              ADD PERFORMER</a>
+          <a href="/games/new" <%- title === 'Add Game' ? 'class="active"' : '' %>>ADD MOVIE</a>
+          <a href="/logout">LOG OUT</a>
+        <% } else { %>
+          <a href="/auth/google" class="login">LOG IN <img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+      </nav>
+    
