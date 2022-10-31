@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Release<br>Year</th>
+      <th>Release<br>Date</th>
+      <th>Company</th>
       <th></th>
     </tr>
   </thead>
@@ -12,7 +13,8 @@
     <% games.forEach(function(g) { %>
       <tr>
         <td><%= g.title %></td>
-        <td><%= g.releaseYear %></td>
+        <td><%= g.releaseDate %></td>
+        <td><%= g.company %></td>
         <td><a href="/games/<%= g._id %>">DETAILS</a></td>
       </tr>
       <% }); %>

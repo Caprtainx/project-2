@@ -3,10 +3,11 @@
 <form id="new-form" action="/games" method="POST">
   <label>Title:</label>
   <input type="text" name="title">
-  <label>Release Year:</label>
-  <input type="text" name="releaseYear">
+  <label>Release Date:</label>
+  <input type="date" name="releaseDate">
   <label>Company:</label>
   <input type="text" name="company">
+  <input type="submit" value="Add Game">
 </form>
 
 <%- include('../partials/footer') %>
