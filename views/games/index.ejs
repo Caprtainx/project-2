@@ -4,18 +4,19 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Release<br>Date</th>
+      <th>Release Date</th>
       <th>Company</th>
-      <th></th>
+      <th>Created By</th>
     </tr>
   </thead>
   <tbody>
     <% games.forEach(function(g) { %>
       <tr>
-        <td><%= g.title %></td>
-        <td><%= g.releaseDate %></td>
-        <td><%= g.company %></td>
-        <td><a href="/games/<%= g._id %>">DETAILS</a></td>
+          <td><%= g.title %></td>
+          <td><%= g.releaseDate %></td>
+          <td><%= g.company %></td>
+          <td class="review-user"><img alt="avatar" src="<%= g.userAvatar %>" referrerpolicy="no-referrer"> <%= g.userName %></td>
+          <td><a href="/games/<%= g._id %>">DETAILS</a></td>
       </tr>
       <% }); %>
     </tbody>

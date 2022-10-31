@@ -33,6 +33,12 @@ const gameSchema = new Schema({
     company: {
         type: String,
     },
+    gameDetails: {
+        type: String
+    },
+    createdBy: {
+        type: String
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
