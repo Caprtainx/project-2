@@ -1,4 +1,5 @@
 const Game = require('../models/game');
+const User = require('../models/user')
 
 module.exports = {
     index,
@@ -16,6 +17,9 @@ function show(req, res) {
 }
 
 function create(req, res) {
+    req.body.user = req.user._id;
+    req.body.userAvatar = req.body.avatar;
+    req.body.userName =req.body.name;
     const game = new Game(req.body);
     game.save(function(err) {
       if (err) return res.redirect('/games/new');
