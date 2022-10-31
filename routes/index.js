@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
 const passport = require('passport');
 
 /* GET home page. */
@@ -11,11 +11,11 @@ router.get('/auth/google', passport.authenticate(
   'google',
   {
     scope: ['profile', 'email'],
-    prompt: "select_account"
+    // prompt: "select_account"
   }
 ));
 
-router.get('/oath2callback', passport.authenticate(
+router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect: '/games',

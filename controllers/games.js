@@ -1,7 +1,12 @@
 const Game = require('../models/game');
 
 module.exports = {
-    index
+    index,
+    new: newGame
+}
+
+function newGame(req, res) {
+    res.render('movies/new', { title: 'Add Movie' });
 }
 
 function index(req, res) {

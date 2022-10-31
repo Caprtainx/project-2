@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Title: </div>
+  <div><%= game.title %></div>
+  <div>Release Year: </div>
+  <div><%= game.releaseYear %></div>
+  <div>Company: </div>
+  <div><%= game.company %></div>
+</section>
+
+
+<th>Rating</th>
+        <!-- Add this placeholder header cell -->
+        <th></th>
+          <td><%= r.rating %></td>
+          <!-- Add this td -->
+          <td>
+            <% if (user?._id.equals(g.user)) { %>
+              <form action="/games/<%= g._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
+<%- include('../partials/footer') %>
