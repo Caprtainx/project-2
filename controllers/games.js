@@ -3,19 +3,25 @@ const Game = require('../models/game');
 module.exports = {
     index,
     new: newGame,
-    create
+    create,
+    show
+}
+
+function show(req, res) {
+    Game.findById(req.params.id, function(err, game) {
+        Game.find({game: game._id}, function(err, games) {
+            res.render('games/show', { title: 'Game Details', game});
+        });
+    });
 }
 
 function create(req, res) {
-    req.body.user = req.user._id;
-    req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
     const game = new Game(req.body);
     game.save(function(err) {
-    if (err) return res.redirect('/games/new');
-    console.log(game);
-    res.redirect('/games');
-  });
+      if (err) return res.redirect('/games/new');
+      console.log(game);
+      res.redirect('/games');
+    });
 }
 
 function newGame(req, res) {

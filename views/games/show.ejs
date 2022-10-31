@@ -10,15 +10,19 @@
 </section>
 
 
-<th>Rating</th>
-        <th></th>
-        <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer"> <%= r.userName %></td>
-          <!-- <td><%= r.rating %></td> -->
-          <td>
-            <% if (user?._id.equals(g.user)) { %>
-              <form action="/games/<%= g._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-              </form>
-            <% } %>
-          </td>
+<br><br><h2>Reviews</h2>
+<form id="add-review-form" method="POST"
+  action="/games/<%= game._id %>/reviews">
+  <label>Review:</label>
+  <textarea name="content"></textarea>
+  <label>Rating:</label>
+  <select name="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5" selected>5</option>
+  </select>
+  <input type="submit" value="Add Review">
+</form>
 <%- include('../partials/footer') %>
