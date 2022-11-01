@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const reviewSchema = new Schema({
+const commentSchema = new Schema({
     content: {
       type: String,
       required: true
@@ -44,7 +44,7 @@ const gameSchema = new Schema({
         ref: 'User',
         required: true
       },
-      reviews: [reviewSchema],
+      comments: [commentSchema],
       userName: String,
       userAvatar: String
     }, {

@@ -3,18 +3,17 @@
   font-family: Helvetica;
 }
 
-body {
+/* body {
   color: red;
   background-color: gold;
   margin: 0;
   height: 100vh;
-  /* display: grid;
+  display: grid;
   grid-template-rows: 40px 1fr;
   grid-template-areas: 
     "nav"
-    "main" */
-  
-}
+    "main"
+} */
 
 #nav-bar {
   color: red;

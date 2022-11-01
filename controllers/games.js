@@ -1,4 +1,5 @@
 const { deleteOne } = require('../models/game');
+const game = require('../models/game');
 const Game = require('../models/game');
 const User = require('../models/user')
 
@@ -7,13 +8,20 @@ module.exports = {
     new: newGame,
     create,
     show,
-    delete: deleteGame
+    delete: deleteGame,
+    edit
+}
+
+function edit(req, res) {
+    Game.findById(req.params.id, function(err, game) {
+        res.render('games/edit', {game});
+    });
 }
 
 function deleteGame(req, res) {
-    Game.findOneAndDelete (
-        { _id: req.params.id, user:req.user}, function(err) {
-          res.redirect('/games');
+    Game.findOneAndDelete(
+        req.params.id, function(err) {
+            res.redirect('/games');
         });
 }
 
@@ -27,8 +35,8 @@ function show(req, res) {
 
 function create(req, res) {
     req.body.user = req.user._id;
-    req.body.userAvatar = req.body.avatar;
-    req.body.userName =req.body.name;
+    req.body.userAvatar = req.user.avatar;
+    req.body.userName =req.user.name;
     const game = new Game(req.body);
     game.save(function(err) {
       if (err) return res.redirect('/games/new');

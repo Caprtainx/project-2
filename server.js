@@ -13,7 +13,7 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
-var reviewsRouter = require('./routes/reviews');
+var commentsRouter = require('./routes/comments');
 var gamesRouter = require('./routes/games');
 
 var app = express();
@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-app.use('/', reviewsRouter);
+app.use('/', commentsRouter);
 app.use('/games', gamesRouter);
 
 // catch 404 and forward to error handler
