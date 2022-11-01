@@ -1,26 +1,35 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color: #424748;
 }
 
 body {
+  color: red;
+  background-color: gold;
   margin: 0;
   height: 100vh;
-  display: grid;
-  grid-template-rows: 50px 1fr;
+  /* display: grid;
+  grid-template-rows: 40px 1fr;
   grid-template-areas: 
     "nav"
-    "main"
+    "main" */
+  
 }
 
-body > nav {
+#nav-bar {
+  color: red;
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: yellow;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
+}
+body > nav > div {
+  margin:auto 5px;
+}
+#nav-bar > a {
+  color: red;
 }
 
 nav > img {

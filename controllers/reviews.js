@@ -3,12 +3,27 @@ const User = require('../models/user');
 
 module.exports = {
     create,
-    delete: deleteReview
+    delete: deleteReview,
+    update,
+    edit
+}
+
+function edit(req, res) {
+  Game.findOne({'review._id': req.params.reviewId}, function(err, game) {
+    const review = game.review.id(req.params.reviewId);
+    res.redirect('/reviews/edit', { title: 'Edit Review', review});
+  })
+}
+
+function update(req, res) {
+  Game.findOne({'games._id': req.params.gameId}, function(err, game) {
+    const review = Game.review.id(req.params.gameId);
+    review.content = req.body.content
+    res.redirect(`/games/${game._id}`);
+  })
 }
 
 function deleteReview(req, res, next) {
-    // Note the cool "dot" syntax to query for a movie with a
-    // review nested within an array
     Game.findOne({
       'reviews._id': req.params.id,
       'reviews.user': req.user._id

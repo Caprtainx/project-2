@@ -17,8 +17,11 @@
           <td><%= g.company %></td>
           <td class="review-user"><img alt="avatar" src="<%= g.userAvatar %>" referrerpolicy="no-referrer"> <%= g.userName %></td>
           <td><a href="/games/<%= g._id %>">DETAILS</a></td>
-      </tr>
-      <% }); %>
+          <td><form action="/games/<%= g._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+          </form></td>
+        </tr>
+        <% }); %>
     </tbody>
   </table>
   

@@ -1,3 +1,4 @@
+const { deleteOne } = require('../models/game');
 const Game = require('../models/game');
 const User = require('../models/user')
 
@@ -5,7 +6,15 @@ module.exports = {
     index,
     new: newGame,
     create,
-    show
+    show,
+    delete: deleteGame
+}
+
+function deleteGame(req, res) {
+    Game.findOneAndDelete (
+        { _id: req.params.id, user:req.user}, function(err) {
+          res.redirect('/games');
+        });
 }
 
 function show(req, res) {
