@@ -9,11 +9,22 @@ module.exports = {
     create,
     show,
     delete: deleteGame,
-    edit
+    edit,
+    update
+}
+
+function update(req, res) {
+    Game.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, game) {
+        if (err || !game) return res.redirect('/games');
+        res.redirect(`/games/${game._id}`);
+    });
 }
 
 function edit(req, res) {
-    Game.findById(req.params.id, function(err, game) {
+    console.log('hello');
+    Game.findOne({_id: req.params.id}, function(err, game) {
+        console.log({game});
+        if (err || !game) return res.redirect('/games');
         res.render('games/edit', {game});
     });
 }
