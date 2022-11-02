@@ -43,12 +43,8 @@ function create(req, res) {
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
-        
-        // We push an object with the data for the
-        // comment subdoc into Mongoose arrays
         game.comments.push(req.body);
         game.save(function(err) {
-          // Step 5: Respond with a redirect because we've mutated data
           res.redirect(`/games/${game._id}`);
         });
       });
