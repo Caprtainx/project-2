@@ -11,6 +11,7 @@ var passport = require('passport');
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
+require('./config/ensureLoggedin');
 
 var indexRouter = require('./routes/index');
 var commentsRouter = require('./routes/comments');
