@@ -5,21 +5,24 @@ module.exports = {
     create,
     delete: deleteComment,
     update,
-    // edit
+    edit
 }
 
-// function edit(req, res) {
-//   Game.findOne({'comment._id': req.params.commentId}, function(err, game) {
-//     const comment = game.comment.id(req.params.commentId);
-//     res.redirect('/comments/edit', { title: 'Edit comment', comment});
-//   })
-// }
+function edit(req, res) {
+  Game.findOne({'comments._id': req.params.id}, function(err, game) {
+    const comment = game.comments.id(req.params.id);
+    console.log(comment);
+    res.render('comments/edit', { title: 'Edit comment', comment});
+  })
+}
 
 function update(req, res) {
-  Game.findOne({'games._id': req.params.gameId}, function(err, game) {
-    const comment = Game.comment.id(req.params.gameId);
+  Game.findOne({'games._id': req.params.id}, function(err, game) {
+    const comment = game.comments.id(req.params.id);
     comment.content = req.body.content
-    res.redirect(`/games/${game._id}`);
+    game.save(function(err) {
+      res.redirect(`/games/${game._id}`);
+    })
   })
 }
 

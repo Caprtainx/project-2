@@ -21,7 +21,6 @@ function update(req, res) {
 }
 
 function edit(req, res) {
-    console.log('hello');
     Game.findOne({_id: req.params.id}, function(err, game) {
         console.log({game});
         if (err || !game) return res.redirect('/games');

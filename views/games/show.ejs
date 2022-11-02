@@ -34,9 +34,8 @@
         <tr>
           <th>User</th>
           <th>Date</th>
-          <th>comment</th>
+          <th>Comment</th>
           <th>Rating</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -44,7 +43,8 @@
         <% game.comments.forEach(function(c) { %>
           <% total += c.rating %>
           <tr>
-            <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer"> <%= c.userName %></td>
+            <td class="comment-user"><img class="profile-pic" alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer">
+            <%= c.userName %></td>
             <td><%= c.createdAt.toLocaleDateString() %></td>
             <td><%= c.content %></td>
             <td><%= c.rating %></td>
@@ -59,7 +59,7 @@
           </tr>
         <% }); %>
         <tr>
-          <td colspan="2"></td>
+          <td colspan="2">Overall Rating: </td>
           <td>
             <strong>
               <%= (total / game.comments.length).toFixed(1) %>

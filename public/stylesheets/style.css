@@ -15,6 +15,20 @@
     "main"
 } */
 
+th {
+  align-content: center;
+}
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+#main-page-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #nav-bar {
   color: red;
   grid-area: nav;
