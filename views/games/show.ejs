@@ -41,19 +41,19 @@
       </thead>
       <tbody>
         <% let total = 0 %>
-        <% game.comments.forEach(function(r) { %>
-          <% total += r.rating %>
+        <% game.comments.forEach(function(c) { %>
+          <% total += c.rating %>
           <tr>
-            <td class="comment-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer"> <%= r.userName %></td>
-            <td><%= r.createdAt.toLocaleDateString() %></td>
-            <td><%= r.content %></td>
-            <td><%= r.rating %></td>
+            <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer"> <%= c.userName %></td>
+            <td><%= c.createdAt.toLocaleDateString() %></td>
+            <td><%= c.content %></td>
+            <td><%= c.rating %></td>
             <td>
-              <% if (user?._id.equals(r.user)) { %>
-                <form action="/comments/<%= r._id %>?_method=DELETE" method="POST">
+              <% if (user?._id.equals(c.user)) { %>
+                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                   <button type="submit">X</button>
                 </form>
-                <a href="/comments/<%= r._id %>/edit">EDIT</a>
+                <a href="/comments/<%= c._id %>/edit">EDIT</a>
               <% } %>
             </td>
           </tr>
