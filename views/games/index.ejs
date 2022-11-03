@@ -12,20 +12,28 @@
   </thead>
   <tbody>
     <% games.forEach(function(g) { %>
-      <tr>
-        <th scope="row">1</th>
-        <td><%= g.title %></td>
-        <td><%= g.releaseDate %></td>
-        <td><%= g.company %></td>
-        <td class="comment-user"><img class="profile-pic" alt="avatar" src="<%= g.userAvatar %>" referrerpolicy="no-referrer"><%= g.userName %></td>
-        <td><a href="/games/<%= g._id %>">DETAILS</a></td>
-        <td><form action="/games/<%= g._id %>?_method=DELETE" method="POST">
+    <tr>
+      <th scope="row">1</th>
+      <td><%= g.title %></td>
+      <td><%= g.releaseDate %></td>
+      <td><%= g.company %></td>
+      <td class="comment-user">
+        <img
+          class="profile-pic"
+          alt="avatar"
+          src="<%= g.userAvatar %>"
+          referrerpolicy="no-referrer"
+        /><%= g.userName %>
+      </td>
+      <td><a href="/games/<%= g._id %>">DETAILS</a></td>
+      <td>
+        <form action="/games/<%= g._id %>?_method=DELETE" method="POST">
           <button type="submit">X</button>
-        </form></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  
-  
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+
 <%- include('../partials/footer') %>

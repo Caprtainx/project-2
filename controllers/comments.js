@@ -11,7 +11,6 @@ module.exports = {
 function edit(req, res) {
   Game.findOne({'comments._id': req.params.id}, function(err, game) {
     const comment = game.comments.id(req.params.id);
-    console.log(comment);
     res.render('comments/edit', { title: 'Edit comment', comment});
   })
 }
