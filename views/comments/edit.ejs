@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form id="add-comment-form" method="POST"
+<form id="edit-comment-form" method="POST"
   action="/comments/<%= comment._id %>?_method=PUT">
   <label>Comment:</label>
   <textarea name="content" value="<%= comment.content %>"></textarea>

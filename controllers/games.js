@@ -1,5 +1,3 @@
-const { deleteOne } = require('../models/game');
-const game = require('../models/game');
 const Game = require('../models/game');
 const User = require('../models/user')
 
