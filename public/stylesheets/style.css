@@ -9,6 +9,8 @@ body {
   overflow:hidden;
   background-color:white;
   color: black;
+  padding: 10px;
+  padding-right: 10px;
 }
 #leaf-falling{
   height:100%;
