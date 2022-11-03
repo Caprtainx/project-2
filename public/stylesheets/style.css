@@ -15,9 +15,6 @@
     "main"
 } */
 
-th {
-  align-content: center;
-}
 
 .profile-pic {
   border-radius: 50%;
@@ -58,6 +55,6 @@ nav > img {
   height: 34px;
 }
 
-.login img {
+.nav-link img {
   height: 30px;
 }

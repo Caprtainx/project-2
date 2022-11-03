@@ -1,19 +1,48 @@
 <%- include('../partials/header') %>
 
+
 <section id="show-page">
-  <div>Title: </div>
-  <div><%= game.title %></div>
-  <div>Release Year: </div>
-  <div><%= game.releaseDate %></div>
-  <div>Company: </div>
-  <div><%= game.company %></div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Game Title</span>
+    <div class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><%= game.title %></div>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Release Date</span>
+    <div class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><%= game.releaseDate %></div>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Company</span>
+    <div class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><%= game.company %></div>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Created By</span>
+    <div class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><img class="profile-pic" alt="avatar" src="<%= game.userAvatar %>" referrerpolicy="no-referrer"><%= game.userName %></div>
+  </div>
 </section>
 
 <button><a href="/games/<%= game._id %>/edit">EDIT</a></button>
 
 
 <br><br><h2>Comments</h2>
+
 <form id="add-comment-form" method="POST"
+  action="/games/<%= game._id %>/comments">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Comment</span>
+    <input name="content" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+  <select name="rating" class="form-select" aria-label="Default select example">
+    <option selected>Rating</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input type="submit" value="Add Comment">
+</form>
+
+<!-- <form id="add-comment-form" method="POST"
   action="/games/<%= game._id %>/comments">
   <label>Comment:</label>
   <textarea name="content"></textarea>
@@ -26,7 +55,7 @@
     <option value="5" selected>5</option>
   </select>
   <input type="submit" value="Add Comment">
-</form>
+</form> -->
 
 <% if (game.comments.length) { %>
     <table>

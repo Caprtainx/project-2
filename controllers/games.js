@@ -50,7 +50,6 @@ function create(req, res) {
     const game = new Game(req.body);
     game.save(function(err) {
       if (err) return res.redirect('/games/new');
-      console.log(game);
       res.redirect('/games');
     });
 }
