@@ -46,6 +46,7 @@ My goal is to create a video game review site for people to post games they enjo
   <h3>:link: Links</h3>
   <summary>Deployed Link</summary>
   <a href="https://game-reviews-ben.herokuapp.com/">Video Game Reviews Site</a>
+  <a href="https://trello.com/b/W9tSncxP/project-2">Trello Link</a>
 </details>
 
 ## :fast_forward: Next Steps
