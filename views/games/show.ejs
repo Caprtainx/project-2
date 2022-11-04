@@ -12,7 +12,6 @@
     >
       <%= game.title %>
     </div>
-  </div>
   <div class="input-group mb-3">
     <span class="input-group-text" id="inputGroup-sizing-default"
       >Release Date</span
@@ -86,15 +85,15 @@
 </form>
 
 <% if (game.comments.length) { %>
-<table>
-  <thead>
-    <tr class="comment-header">
-      <th>User</th>
-      <th>Date</th>
-      <th>Comment</th>
-      <th>Rating</th>
-    </tr>
-  </thead>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Date</th>
+        <th scope="col">Comment</th>
+        <th scope="col">Rating By</th>
+      </tr>
+    </thead>
   <tbody>
     <% let total = 0 %> <% game.comments.forEach(function(c) { %> <% total +=
     c.rating %>
@@ -113,10 +112,10 @@
       <td><%= c.rating %></td>
       <td>
         <% if (user?._id.equals(c.user)) { %>
+        <a href="/comments/<%= c._id %>/edit">EDIT</a>
         <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
           <button type="submit">X</button>
         </form>
-        <a href="/comments/<%= c._id %>/edit">EDIT</a>
         <% } %>
       </td>
     </tr>
@@ -131,4 +130,6 @@
 </table>
 <% } else { %>
 <h5>No Comments Yet</h5>
-<% } %> <%- include('../partials/footer') %>
+<% } %> 
+
+<%- include('../partials/footer') %>

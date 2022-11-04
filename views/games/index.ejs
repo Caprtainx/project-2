@@ -3,7 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Title</th>
       <th scope="col">Release Date</th>
       <th scope="col">Company</th>
@@ -13,10 +12,9 @@
   <tbody>
     <% games.forEach(function(g) { %>
     <tr>
-      <th scope="row">1</th>
       <td><%= g.title %></td>
       <td><%= g.releaseDate %></td>
-      <td><%= g.company %></td>
+      <td><%= g.company %></td> 
       <td class="comment-user">
         <img
           class="profile-pic"
